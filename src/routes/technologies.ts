@@ -1,5 +1,6 @@
 import type { Technology } from "./project";
 import prisma from "$lib/assets/prisma.svg";
+import hyprland from "$lib/assets/hyprland.svg";
 
 export const technologies: Technology[] = [
   {
@@ -29,6 +30,10 @@ export const technologies: Technology[] = [
   {
     name: "Prisma",
     icon: prisma
+  },
+  {
+    name: "Hyprland",
+    icon: hyprland
   },
   {
     name: "Arch Linux",
