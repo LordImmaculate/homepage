@@ -80,7 +80,7 @@
 
 <style>
   :global(body) {
-    background-image: url(https://hypr.land/imgs/blog/contestWinners/corndog.png);
+    background-image: url("/bg.webp");
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
