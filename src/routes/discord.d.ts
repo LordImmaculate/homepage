@@ -1,6 +1,6 @@
 // export type DiscordResponse = SuccessResponse | ErrorResponse;
 
-type DiscordResponse = {
+export type DiscordResponse = {
 	data: Data | null;
 	error: Error | null;
 	success: boolean;
@@ -47,7 +47,7 @@ type PrimaryGuild = {
 	identity_enabled: boolean;
 };
 
-type Activity = {
+export type Activity = {
 	flags: number;
 	id: string;
 	name: string;
