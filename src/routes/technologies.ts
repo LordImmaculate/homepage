@@ -31,7 +31,7 @@ export const technologies: Technology[] = [
     icon: prisma
   },
   {
-    name: "Arch",
+    name: "Arch Linux",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/archlinux/archlinux-original.svg"
   }
 ];
