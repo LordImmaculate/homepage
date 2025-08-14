@@ -6,7 +6,7 @@
   }: { src: string; alt: string; href?: string } = $props();
 </script>
 
-<a {href} class="group relative">
+<a {href} class="group relative" target="_blank" rel="noopener noreferrer">
   <img
     {src}
     {alt}

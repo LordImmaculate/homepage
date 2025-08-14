@@ -8,8 +8,8 @@ export type Social = {
 
 export const socials: Social[] = [
   {
-    href: "https://open.spotify.com/user/20c9ysx809ffhxj4qkzy5374d",
-    name: "Spotify",
+    href: "https://github.com/lordimmaculate",
+    name: "GitHub",
     icon: github
   },
   {
