@@ -56,6 +56,21 @@
           spotify: null
         };
       }
+
+      for (const activity of data.activities) {
+        if (activity.assets?.large_image) {
+          if (activity.assets.large_image.includes("spotify:")) {
+            const spotifyID = activity.assets.large_image.split(":")[1];
+            activity.assets.large_image = `https://i.scdn.co/image/${spotifyID}`;
+            activity.details = `Listening to ${activity.details}`;
+            activity.state = `By ${activity.state}`;
+          } else if (activity.assets.large_image.includes("https")) {
+            const URL = activity.assets.large_image.split("https/")[1];
+            activity.assets.large_image = `https://${URL}`;
+          }
+        }
+      }
+
       error = response.error;
       isInitialLoading = false;
     } catch (err) {
