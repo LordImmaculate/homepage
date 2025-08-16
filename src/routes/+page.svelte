@@ -102,9 +102,9 @@
     >Loading...</span
   >
 {:else}
-  <div class="flex flex-row items-center justify-center lg:min-h-screen">
+  <div class="flex flex-row items-center justify-center xl:min-h-screen">
     <div
-      class="lg flex h-screen w-full flex-col items-center justify-center gap-4 border-2 border-main text-white shadow-2xl backdrop-blur-xl backdrop-brightness-75 lg:h-auto lg:w-auto lg:rounded-4xl lg:p-52 lg:pt-2"
+      class="flex h-screen w-full flex-col items-center justify-center gap-4 border-2 border-main text-white shadow-2xl backdrop-blur-xl backdrop-brightness-75 xl:h-auto xl:w-auto xl:rounded-4xl xl:min-w-3xl xl:pb-72 xl:p-2"
     >
       <div class="flex flex-row items-center justify-center gap-4 p-2">
         <div class="flex flex-col items-start">
@@ -129,7 +129,7 @@
           </svg>
         </div>
       </div>
-      <div class="grid gap-4 lg:grid-cols-2">
+      <div class="grid gap-4 xl:grid-cols-2">
         {#each data.activities.slice(0, 2) as activity}
           <ActivityBox
             {activity}
