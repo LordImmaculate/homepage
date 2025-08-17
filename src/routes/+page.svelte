@@ -8,9 +8,12 @@
   import ImageLabel from "./ImageLabel.svelte";
   import { onMount, onDestroy } from "svelte";
 
-  let data: DiscordResponse["data"];
-  let error: DiscordResponse["error"] | string = null;
-  let isInitialLoading = true;
+  export let data: {
+    discordData: DiscordResponse["data"];
+    error: DiscordResponse["error"] | string;
+  };
+
+  let { discordData, error } = data;
   let interval: number;
 
   function fetchDiscordData(): Promise<DiscordResponse> {
@@ -22,9 +25,9 @@
   async function updateData() {
     try {
       const response = await fetchDiscordData();
-      data = response.data;
-      if (!data) {
-        data = {
+      discordData = response.data;
+      if (!discordData) {
+        discordData = {
           kv: {},
           discord_user: {
             id: "",
@@ -57,7 +60,7 @@
         };
       }
 
-      for (const activity of data.activities) {
+      for (const activity of discordData.activities) {
         if (activity.assets?.large_image) {
           if (activity.assets.large_image.includes("spotify:")) {
             const spotifyID = activity.assets.large_image.split(":")[1];
@@ -72,10 +75,8 @@
       }
 
       error = response.error;
-      isInitialLoading = false;
     } catch (err) {
       error = err as string;
-      isInitialLoading = false;
     }
   }
 
@@ -96,7 +97,7 @@
   });
 </script>
 
-{#if isInitialLoading}
+{#if false}
   <span
     class="text-white border border-main p-4 rounded-2xl backdrop-blur-2xl backdrop-brightness-75 text-center fixed left-1/2 top-1/2 -translate-1/2"
     >Loading...</span
@@ -108,7 +109,7 @@
     >
       <div class="flex flex-row items-center justify-center gap-4 p-2">
         <div class="flex flex-col items-start">
-          <h1 class="text-xl">{data.discord_user.global_name}</h1>
+          <h1 class="text-xl">{discordData.discord_user.global_name}</h1>
           <p class="text-sm">@lordimmaculate</p>
           <p class="text-sm">TypeScript Programmer</p>
         </div>
@@ -124,16 +125,18 @@
               r="10"
               cx="10"
               cy="10"
-              fill={data.discord_status == "online" ? "#43a35a" : "#707890"}
+              fill={discordData.discord_status == "online"
+                ? "#43a35a"
+                : "#707890"}
             />
           </svg>
         </div>
       </div>
       <div class="grid gap-4 xl:grid-cols-2">
-        {#each data.activities.slice(0, 2) as activity}
+        {#each discordData.activities.slice(0, 2) as activity}
           <ActivityBox
             {activity}
-            class={data.activities.length === 1 ? "col-span-2" : ""}
+            class={discordData.activities.length === 1 ? "col-span-2" : ""}
           />
         {/each}
       </div>
