@@ -1,11 +1,11 @@
 <script lang="ts">
   import "@fontsource/jetbrains-mono";
   import pfp from "$lib/assets/pfp.png";
-  import type { DiscordResponse } from "./discord";
-  import ActivityBox from "./ActivityBox.svelte";
-  import { technologies } from "./technologies";
-  import { socials } from "./socials";
-  import ImageLabel from "./ImageLabel.svelte";
+  import type { DiscordResponse } from "@/types/discord";
+  import ActivityBox from "@/components/ActivityBox.svelte";
+  import { technologies } from "@/server/technologies";
+  import { socials } from "@/server/socials";
+  import ImageLabel from "@/components/ImageLabel.svelte";
   import { onMount, onDestroy } from "svelte";
 
   export let data: {
@@ -97,74 +97,28 @@
   });
 </script>
 
-{#if false}
-  <span
-    class="text-white border border-main p-4 rounded-2xl backdrop-blur-2xl backdrop-brightness-75 text-center fixed left-1/2 top-1/2 -translate-1/2"
-    >Loading...</span
-  >
-{:else}
-  <div class="flex flex-row items-center justify-center xl:min-h-screen">
-    <div
-      class="flex h-screen w-full flex-col items-center justify-center gap-4 border-2 border-main text-white shadow-2xl backdrop-blur-xl backdrop-brightness-75 xl:h-auto xl:w-auto xl:rounded-4xl xl:min-w-3xl xl:pb-72 xl:p-2"
-    >
-      <div class="flex flex-row items-center justify-center gap-4 p-2">
-        <div class="flex flex-col items-start">
-          <h1 class="text-xl">{discordData.discord_user.global_name}</h1>
-          <p class="text-sm">@lordimmaculate</p>
-          <p class="text-sm">TypeScript Programmer</p>
-        </div>
-        <div class="relative">
-          <img src={pfp} class="h-auto w-20 rounded-full" alt="Profile" />
-          <svg
-            class="absolute right-[1.5px] bottom-[1.5px]"
-            height="20"
-            width="20"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <circle
-              r="10"
-              cx="10"
-              cy="10"
-              fill={discordData.discord_status == "online"
-                ? "#43a35a"
-                : "#707890"}
-            />
-          </svg>
-        </div>
-      </div>
-      <div class="grid gap-4 xl:grid-cols-2">
-        {#each discordData.activities.slice(0, 2) as activity}
-          <ActivityBox
-            {activity}
-            class={discordData.activities.length === 1 ? "col-span-2" : ""}
-          />
-        {/each}
-      </div>
-
-      <h2 class="text-xl">Links</h2>
-      <div class="flex h-auto flex-row gap-2">
-        {#each socials as social}
-          <ImageLabel src={social.icon} alt={social.name} href={social.href} />
-        {/each}
-      </div>
-      <h2 class="text-xl">Technologies</h2>
-      <div class="flex flex-row gap-2">
-        {#each technologies as tech}
-          <ImageLabel src={tech.icon} alt={tech.name} />
-        {/each}
-      </div>
-      <!-- <h2 class="text-xl">Projects</h2> -->
-    </div>
+<div class="">
+  <h1 class="text-5xl mb-4 mt-50">Hi!</h1>
+  <h1 class="text-3xl mb-4">
+    I'm <span
+      class="bg-gradient-to-r bg-clip-text text-transparent from-indigo-400 to-pink-600"
+      >Immaculate</span
+    >.
+  </h1>
+  <h2 class="text-2xl mb-6">
+    A <span
+      class="bg-gradient-to-r bg-clip-text text-transparent from-blue-700 to-blue-400"
+      >TypeScript</span
+    > enthusiast and open-source contributor.
+  </h2>
+  <div class="flex gap-4 mb-6">
+    {#each technologies as technology}
+      <ImageLabel src={technology.icon} alt={technology.name} />
+    {/each}
   </div>
-{/if}
-
-<style>
-  :global(body) {
-    background-image: url("/bg.webp");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
-    font-family: "JetBrains Mono";
-  }
-</style>
+  <div class="flex gap-4 mb-6">
+    {#each socials as social}
+      <ImageLabel src={social.icon} alt={social.name} href={social.href} />
+    {/each}
+  </div>
+</div>

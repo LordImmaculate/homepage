@@ -1,4 +1,4 @@
-import type { Technology } from "./project";
+import type { Technology } from "../types/project";
 import prisma from "$lib/assets/prisma.svg";
 
 export const technologies: Technology[] = [

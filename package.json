@@ -36,6 +36,8 @@
 		"vite": "^7.0.4"
 	},
 	"dependencies": {
-		"@fontsource/jetbrains-mono": "^5.2.6"
+		"@fontsource/jetbrains-mono": "^5.2.6",
+		"clsx": "^2.1.1",
+		"resend": "^6.5.2"
 	}
 }

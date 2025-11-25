@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { ClassValue } from "svelte/elements";
-  import type { Activity } from "./discord";
+  import type { Activity } from "../routes/discord";
 
   const {
     activity,

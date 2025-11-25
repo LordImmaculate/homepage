@@ -1,4 +1,4 @@
-import type { DiscordResponse } from "./discord";
+import type { DiscordResponse } from "../types/discord";
 
 async function fetchDiscordData(): Promise<DiscordResponse> {
   const res = await fetch(

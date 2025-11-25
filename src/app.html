@@ -1,11 +1,26 @@
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		%sveltekit.head%
-	</head>
-	<body data-sveltekit-preload-data="hover">
-		<div style="display: contents">%sveltekit.body%</div>
-	</body>
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	%sveltekit.head%
+</head>
+
+<body class="bg-rose-pine-base text-rose-pine-text min-h-screen" data-sveltekit-preload-data="hover">
+	<header>
+		<nav class="flex items-center justify-between p-6 max-w-7xl mx-auto gap-4">
+			<a href="/"
+				class="text-2xl bg-gradient-to-r bg-clip-text text-transparent from-indigo-400 to-pink-600 hover:underline">
+				Immaculate</a>
+			<div class="space-x-4">
+				<a href="/contact" class="text-lg hover:underline">Contact</a>
+			</div>
+		</nav>
+	</header>
+	<div class="flex items-center justify-center mx-5">
+		%sveltekit.body%
+	</div>
+</body>
+
 </html>
