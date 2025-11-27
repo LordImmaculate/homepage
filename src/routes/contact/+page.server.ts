@@ -1,19 +1,20 @@
 import { Resend } from "resend";
+import { RESEND_API_KEY } from "$env/static/private";
 
-const resend = new Resend(process.env.RESEND_API_KEY!);
+const resend = new Resend(RESEND_API_KEY);
 
 export const actions = {
   default: async ({ request }) => {
     const formData = await request.formData();
-    const name = formData.get("name");
-    const email = formData.get("email");
-    const subject = formData.get("subject");
-    const message = formData.get("message");
+    const name = formData.get("name") as string;
+    const email = formData.get("email") as string;
+    const subject = formData.get("subject") as string;
+    const message = formData.get("message") as string;
 
     await resend.emails.send({
       from: `${name} <homepage@lordimmaculate.dev>`,
       to: "emil.dhauwe@gmail.com",
-      reply_to: email,
+      replyTo: email,
       subject,
       text: message
     });
