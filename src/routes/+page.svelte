@@ -1,8 +1,6 @@
 <script lang="ts">
   import "@fontsource/jetbrains-mono";
-  import pfp from "$lib/assets/pfp.png";
   import type { DiscordResponse } from "@/types/discord";
-  import ActivityBox from "@/components/ActivityBox.svelte";
   import { technologies } from "@/server/technologies";
   import { socials } from "@/server/socials";
   import ImageLabel from "@/components/ImageLabel.svelte";
@@ -14,7 +12,7 @@
   };
 
   let { discordData, error } = data;
-  let interval: number;
+  let interval: ReturnType<typeof setInterval>;
 
   function fetchDiscordData(): Promise<DiscordResponse> {
     return fetch("https://api.lanyard.rest/v1/users/694817835209326652").then(
@@ -113,7 +111,11 @@
   </h2>
   <div class="flex gap-4 mb-6">
     {#each technologies as technology}
-      <ImageLabel src={technology.icon} alt={technology.name} />
+      <ImageLabel
+        src={technology.icon}
+        alt={technology.name}
+        href={technology.href}
+      />
     {/each}
   </div>
   <div class="flex gap-4 mb-6">

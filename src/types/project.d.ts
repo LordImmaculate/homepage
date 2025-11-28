@@ -1,14 +1,15 @@
 export type Project = {
-	name: string;
-	description: string;
-	technologies: Technology[];
-	links: {
-		github: string;
-		demo: string | null;
-	};
+  name: string;
+  description: string;
+  technologies: Technology[];
+  links: {
+    github: string;
+    demo: string | null;
+  };
 };
 
 export type Technology = {
-	name: string;
-	icon: string;
+  name: string;
+  icon: string;
+  href?: string;
 };
