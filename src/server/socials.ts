@@ -13,7 +13,7 @@ export const socials: Social[] = [
     icon: github
   },
   {
-    icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Steam_icon_logo.svg/768px-Steam_icon_logo.svg.png",
+    icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Steam_icon_logo.svg/960px-Steam_icon_logo.svg.png",
     name: "Steam",
     href: "https://steamcommunity.com/id/lordimmaculate"
   },
